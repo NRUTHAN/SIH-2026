@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CivicDocket — Municipal Complaint Tracker</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <p class="eyebrow">Municipal Services · Live SLA Tracker</p>
+      <h1>CivicDocket</h1>
+    </div>
+    <nav>
+      <a href="index.html" class="current">Citizen Portal</a>
+      <a href="admin.html">Department Panel</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="report">Report an Issue</button>
+    <button class="tab-btn" data-tab="dashboard">Public Ledger</button>
+  </div>
+
+  <!-- ============================= REPORT TAB ============================= -->
+  <section class="tab-panel active" id="tab-report">
+    <div class="panel">
+      <h2>File a civic complaint</h2>
+      <p class="sub">Add a photo and your location. Our classifier reads the description (and photo, if AI vision is enabled on the server) to route this to the right department automatically — a resolution deadline starts the moment you submit.</p>
+
+      <form id="reportForm">
+        <div class="field">
+          <label for="title">Issue title</label>
+          <input type="text" id="title" placeholder="e.g. Overflowing garbage bin near bus stop" required />
+        </div>
+
+        <div class="field">
+          <label for="description">Description</label>
+          <textarea id="description" placeholder="Describe what you're seeing — location landmarks help too." required></textarea>
+        </div>
+
+        <div class="field">
+          <label for="category">Category (optional — leave on Auto to let AI decide)</label>
+          <select id="category">
+            <option value="">Auto-detect with AI</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Photo evidence</label>
+          <input type="file" id="photo" accept="image/*" capture="environment" />
+          <img id="photoPreview" alt="preview" />
+        </div>
+
+        <div class="field">
+          <label>Location</label>
+          <div class="location-row">
+            <button type="button" class="btn btn-outline btn-sm" id="useLocationBtn">Use my current location</button>
+            <span class="hint" id="locStatus">No location set yet.</span>
+          </div>
+          <div class="field-row" style="margin-top:10px;">
+            <div class="field">
+              <label for="lat">Latitude</label>
+              <input type="number" id="lat" step="any" placeholder="12.3051" />
+            </div>
+            <div class="field">
+              <label for="lng">Longitude</label>
+              <input type="number" id="lng" step="any" placeholder="76.6553" />
+            </div>
+          </div>
+          <div class="field">
+            <label for="address">Nearby landmark / address (optional)</label>
+            <input type="text" id="address" placeholder="e.g. Opp. Vidyaranyapuram Market" />
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="citizenName">Your name (optional)</label>
+            <input type="text" id="citizenName" placeholder="Anonymous" />
+          </div>
+          <div class="field">
+            <label for="citizenPhone">Phone (optional)</label>
+            <input type="tel" id="citizenPhone" placeholder="For status updates" />
+          </div>
+        </div>
+
+        <button type="submit" class="btn" id="submitBtn">Submit complaint</button>
+      </form>
+
+      <div class="confirmation-ticket" id="confirmationTicket" style="display:none;"></div>
+    </div>
+  </section>
+
+  <!-- ============================ DASHBOARD TAB ============================ -->
+  <section class="tab-panel" id="tab-dashboard">
+
+    <div class="stats-strip" id="statsStrip">
+      <div class="stat-box"><div class="num" id="statTotal">–</div><div class="lbl">Total complaints</div></div>
+      <div class="stat-box"><div class="num" id="statOpen">–</div><div class="lbl">Currently open</div></div>
+      <div class="stat-box breach"><div class="num" id="statBreach">–</div><div class="lbl">SLA breached now</div></div>
+      <div class="stat-box compliance"><div class="num" id="statCompliance">–</div><div class="lbl">On-time resolution rate</div></div>
+    </div>
+
+    <div class="filters">
+      <select id="filterStatus">
+        <option value="">All statuses</option>
+        <option value="Assigned">Assigned</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Resolved">Resolved</option>
+        <option value="Closed">Closed</option>
+      </select>
+      <select id="filterCategory"><option value="">All categories</option></select>
+      <select id="filterDepartment"><option value="">All departments</option></select>
+      <button class="btn btn-outline btn-sm" id="refreshBtn">Refresh</button>
+    </div>
+
+    <div class="docket-list" id="docketList">
+      <div class="empty-state">Loading complaints…</div>
+    </div>
+
+  </section>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

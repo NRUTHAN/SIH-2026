@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>CivicDocket — Department Panel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-inner">
+    <div>
+      <p class="eyebrow">Municipal Services · Internal</p>
+      <h1>CivicDocket — Department Panel</h1>
+    </div>
+    <nav>
+      <a href="index.html">Citizen Portal</a>
+      <a href="admin.html" class="current">Department Panel</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="panel">
+    <h2>AI escalation alerts</h2>
+    <p class="sub">Auto-generated the moment a department misses its SLA deadline without acting. This is the "no action taken → AI raises a complaint" loop.</p>
+    <div class="notif-feed" id="notifFeed">
+      <div class="empty-state">No escalations yet.</div>
+    </div>
+  </div>
+
+  <div class="panel">
+    <h2>Complaint queue</h2>
+    <p class="sub">Viewing as a department — pick which department's queue to work from. (In production this would be tied to a real staff login.)</p>
+    <div class="filters">
+      <select id="deptSelect"><option value="">All departments</option></select>
+      <select id="statusSelect">
+        <option value="">All open statuses</option>
+        <option value="Assigned">Assigned</option>
+        <option value="In Progress">In Progress</option>
+        <option value="Resolved">Resolved</option>
+      </select>
+      <button class="btn btn-outline btn-sm" id="refreshBtn">Refresh</button>
+    </div>
+    <div class="docket-list" id="queueList">
+      <div class="empty-state">Loading…</div>
+    </div>
+  </div>
+
+</div>
+
+<script src="admin.js"></script>
+</body>
+</html>

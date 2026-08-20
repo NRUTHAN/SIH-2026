@@ -1,0 +1,114 @@
+{
+  "departments": [
+    {
+      "id": "sanitation",
+      "name": "Sanitation Department",
+      "head": "Sanitation Officer"
+    },
+    {
+      "id": "electrical",
+      "name": "Electrical & Street Lighting Dept",
+      "head": "Electrical Engineer"
+    },
+    {
+      "id": "roads",
+      "name": "Roads & Infrastructure Dept",
+      "head": "Roads Engineer"
+    },
+    {
+      "id": "water",
+      "name": "Water & Drainage Dept",
+      "head": "Water Works Officer"
+    },
+    {
+      "id": "general",
+      "name": "General Municipal Office",
+      "head": "Ward Officer"
+    }
+  ],
+  "categories": [
+    {
+      "id": "garbage",
+      "label": "Garbage / Waste",
+      "department": "sanitation",
+      "slaHours": 48,
+      "keywords": [
+        "garbage",
+        "trash",
+        "waste",
+        "dump",
+        "dumping",
+        "litter",
+        "overflow",
+        "overflowing",
+        "bin",
+        "rubbish",
+        "smell",
+        "stink"
+      ]
+    },
+    {
+      "id": "streetlight",
+      "label": "Streetlight",
+      "department": "electrical",
+      "slaHours": 72,
+      "keywords": [
+        "streetlight",
+        "street light",
+        "lamp",
+        "lighting",
+        "bulb",
+        "pole",
+        "dark street",
+        "light not working",
+        "flicker"
+      ]
+    },
+    {
+      "id": "pothole",
+      "label": "Pothole / Road Damage",
+      "department": "roads",
+      "slaHours": 120,
+      "keywords": [
+        "pothole",
+        "road",
+        "crack",
+        "damaged road",
+        "asphalt",
+        "broken road",
+        "pavement",
+        "footpath"
+      ]
+    },
+    {
+      "id": "water_leakage",
+      "label": "Water Leakage / Drainage",
+      "department": "water",
+      "slaHours": 24,
+      "keywords": [
+        "water leak",
+        "leakage",
+        "pipe",
+        "pipeline",
+        "drainage",
+        "sewage",
+        "sewer",
+        "flood",
+        "waterlogging",
+        "manhole"
+      ]
+    },
+    {
+      "id": "other",
+      "label": "Other / General Civic Issue",
+      "department": "general",
+      "slaHours": 96,
+      "keywords": []
+    }
+  ],
+  "escalation": {
+    "level1AfterHours": 0,
+    "level2AfterExtraHours": 48,
+    "checkIntervalSeconds": 15
+  }
+}

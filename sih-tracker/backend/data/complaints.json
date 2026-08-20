@@ -1,0 +1,57 @@
+[
+  {
+    "id": "8246e759-01ff-4a3c-9905-ce5926c1d438",
+    "title": "garbage overflowing near bus stop",
+    "description": "The garbage bin near the main bus stop has been overflowing for three days and waste is scattered on the road.",
+    "photoDataUrl": null,
+    "location": {
+      "lat": 13.3437,
+      "lng": 74.7466,
+      "address": ""
+    },
+    "citizen": {
+      "name": "Anonymous",
+      "phone": ""
+    },
+    "category": {
+      "id": "garbage",
+      "label": "Garbage / Waste"
+    },
+    "department": {
+      "id": "sanitation",
+      "name": "Sanitation Department"
+    },
+    "aiClassification": {
+      "method": "keyword-classifier",
+      "confidence": 0.95
+    },
+    "status": "Resolved",
+    "priority": "Normal",
+    "createdAt": "2026-08-20T01:26:11.525Z",
+    "slaHours": 48,
+    "slaDeadline": "2026-08-22T01:26:11.525Z",
+    "escalationLevel": 0,
+    "escalationHistory": [],
+    "resolutionPhotoDataUrl": null,
+    "resolvedAt": "2026-08-20T01:31:44.232Z",
+    "statusHistory": [
+      {
+        "status": "Assigned",
+        "at": "2026-08-20T01:26:11.525Z",
+        "note": "Auto-routed to Sanitation Department by AI (keyword-classifier, confidence 0.95)."
+      },
+      {
+        "status": "In Progress",
+        "at": "2026-08-20T01:28:06.697Z",
+        "note": "Department began work on this complaint.",
+        "actor": "Department staff"
+      },
+      {
+        "status": "Resolved",
+        "at": "2026-08-20T01:31:44.232Z",
+        "note": "Marked resolved by department.",
+        "actor": "Department staff"
+      }
+    ]
+  }
+]
